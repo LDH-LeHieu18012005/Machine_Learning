@@ -38,15 +38,20 @@ Dự án tập trung vào việc ứng dụng Machine Learning để dự đoán
 
 ## 4. CẤU TRÚC THƯ MỤC
 
+<h2>Cấu trúc thư mục dự án</h2>
+
+<pre>
 Machine_Learning/
-├── app/                 # Mã nguồn chính: tiền xử lý, huấn luyện, dự đoán
-├── demo/                # Script & Notebook demo inference
-├── data/                # Dữ liệu (csv gốc hoặc hướng dẫn tải)
-├── reports/             # Báo cáo & hình ảnh kết quả (Confusion Matrix, ROC)
+├── app/                 # Mã nguồn chính
+├── demo/                # Demo inference & notebook
+├── data/                # Dữ liệu
+├── reports/             # Báo cáo & hình ảnh
 ├── slides/              # Slide thuyết trình
-├── requirements.txt     # Danh sách thư viện Python
-├── .gitignore           # File loại trừ khi push GitHub
-└── README.md            # Tài liệu mô tả dự án
+├── requirements.txt     # Thư viện Python
+├── .gitignore           # File loại trừ
+└── README.md            # Tài liệu dự án
+</pre>
+
 
 
 ## 5. HƯỚNG DẪN CÀI ĐẶT & THỨ TỰ THỰC THI
