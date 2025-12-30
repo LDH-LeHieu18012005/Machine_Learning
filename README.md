@@ -37,14 +37,15 @@ Dự án tập trung vào việc ứng dụng Machine Learning để dự đoán
 - F1-score: 14.19%
 
 ## 4. CẤU TRÚC THƯ MỤC
+```text
 Machine_Learning/
-├── app/              # Mã nguồn chính (train.py, preprocess, utils)
-├── demo/             # Demo inference & notebook
-├── data/             # Dữ liệu đầu vào
-├── reports/          # Báo cáo & hình ảnh đánh giá
-├── slides/           # Slide thuyết trình
-├── requirements.txt  # Danh sách thư viện
-└── README.md         # Mô tả dự án
+├── app/              # Mã nguồn huấn luyện (train.py, predict.py)
+├── demo/             # Scripts chạy dự đoán & Notebook demo
+├── data/             # File dữ liệu csv gốc
+├── reports/          # Báo cáo Docx & Hình ảnh (Confusion Matrix, ROC)
+├── slides/           # Slide thuyết trình (PDF)
+├── requirements.txt  # Thư viện cần thiết
+└── README.md         # Hướng dẫn dự án
 
 ## 5. HƯỚNG DẪN CÀI ĐẶT & THỨ TỰ THỰC THI
 
