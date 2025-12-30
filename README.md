@@ -37,31 +37,17 @@ Dự án tập trung vào việc ứng dụng Machine Learning để dự đoán
 - F1-score: 14.19%
 
 ## 4. CẤU TRÚC THƯ MỤC
+
 Machine_Learning/
-├── app/                 # Mã nguồn chính (tiền xử lý, train, predict, utils)
-│   ├── train.py         # Huấn luyện mô hình
-│   ├── preprocess.py   # Tiền xử lý dữ liệu
-│   └── utils.py         # Các hàm hỗ trợ
-│
-├── demo/                # Demo chạy nhanh & minh họa
-│   ├── demo_inference.py# Dự đoán mẫu bệnh nhân mới
-│   └── demo.ipynb       # Notebook trực quan hóa & giải thích
-│
-├── data/                # Dữ liệu
-│   ├── raw/             # Dữ liệu gốc (CSV)
-│   └── README.md        # Hướng dẫn tải & mô tả dữ liệu
-│
-├── reports/             # Kết quả & báo cáo
-│   ├── report.docx      # Báo cáo tổng hợp
-│   ├── confusion_matrix.png
-│   └── roc_curve.png
-│
+├── app/                 # Mã nguồn chính: tiền xử lý, huấn luyện, dự đoán
+├── demo/                # Script & Notebook demo inference
+├── data/                # Dữ liệu (csv gốc hoặc hướng dẫn tải)
+├── reports/             # Báo cáo & hình ảnh kết quả (Confusion Matrix, ROC)
 ├── slides/              # Slide thuyết trình
-│   └── presentation.pdf
-│
 ├── requirements.txt     # Danh sách thư viện Python
-├── .gitignore           # Các file/thư mục không push lên GitHub
+├── .gitignore           # File loại trừ khi push GitHub
 └── README.md            # Tài liệu mô tả dự án
+
 
 ## 5. HƯỚNG DẪN CÀI ĐẶT & THỨ TỰ THỰC THI
 
