@@ -37,7 +37,6 @@ Dự án tập trung vào việc ứng dụng Machine Learning để dự đoán
 - F1-score: 14.19%
 
 ## 4. CẤU TRÚC THƯ MỤC
-```text
 Machine_Learning/
 ├── app/              # Mã nguồn huấn luyện (train.py, predict.py)
 ├── demo/             # Scripts chạy dự đoán & Notebook demo
