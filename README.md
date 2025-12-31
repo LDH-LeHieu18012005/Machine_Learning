@@ -28,9 +28,83 @@ Dự án tập trung vào việc ứng dụng Machine Learning để dự đoán
 - stroke (int64): Nhãn đột quỵ (0: Không, 1: Có)
 
 ## 3. QUY TRÌNH THỰC HIỆN (PIPELINE)
-- Tiền xử lý dữ liệu: xử lý giá trị thiếu ở bmi và smoking_status, One-Hot Encoding cho biến phân loại, chuẩn hóa dữ liệu số, cân bằng dữ liệu bằng SMOTE.
-- Huấn luyện mô hình: Logistic Regression, Random Forest, Support Vector Machine (SVM).
-- Đánh giá mô hình: Confusion Matrix, Precision, Recall, F1-score.
+Toàn bộ pipeline được triển khai trong notebook: demo/demo.ipynb.
+
+3.1. Chuẩn bị dữ liệu
+
+Đọc file dữ liệu: data/Dotquy.csv
+
+Target: stroke
+
+Làm sạch nhãn:
+
+Ép kiểu numeric (to_numeric) cho các cột số.
+
+Thay inf / -inf → NaN.
+
+Loại bỏ dòng có target hoặc feature không hợp lệ.
+
+3.2. Chia train/test
+
+Chia dữ liệu: 75% train, 25% test (train_test_split(test_size=0.25, stratify=y, random_state=42))
+
+Giữ tỷ lệ lớp để xử lý imbalance.
+
+3.3. Tiền xử lý (Preprocess) bằng ColumnTransformer
+
+Numeric columns: age, avg_glucose_level, bmi
+
+SimpleImputer(strategy="median")
+
+Minmax()
+
+Categorical columns: gender, ever_married, work_type, Residence_type, smoking_status
+
+SimpleImputer(strategy="most_frequent")
+
+OneHotEncoder(handle_unknown="ignore")
+
+3.4. Huấn luyện (Train) + xử lý mất cân bằng (Imbalance)
+
+Mỗi model được gắn vào pipeline: preprocess → (tùy chọn) RandomOverSampler → model
+
+Các model hỗ trợ class_weight: LogisticRegression, SVM, RandomForestClassifier
+
+Ưu tiên class_weight="balanced" để xử lý imbalance.
+
+3.5. Đánh giá (Evaluate)
+
+Đánh giá trên TRAIN với StratifiedKFold(n_splits=5) để giảm bias và tránh leakage.
+
+Metrics sử dụng:
+
+Confusion Matrix
+
+Accuracy, Precision, Recall, F1-score
+
+
+Threshold dự đoán:
+
+Baseline: chọn threshold tối ưu F1 dựa trên Precision–Recall curve
+
+Sau tuning: chọn threshold ưu tiên Recall với ràng buộc Precision tối thiểu (mặc định 0.15)
+
+3.6. Tuning (RandomizedSearchCV)
+
+Sau khi chạy baseline, notebook tuning một số model mạnh:
+
+Random Forest (RF)
+
+Support Vector Machine (SVM)
+
+Logistic Regression (LR)
+
+Chọn tham số để tối ưu metric cho dữ liệu mất cân bằng.
+
+3.7. Inference
+
+
+Demo inference chạy qua: demo/app.py
 
 ### Kết quả tiêu biểu
 - Recall: 90.31%
